@@ -16,7 +16,7 @@
     dest: /usr/share/nginx/html
     remote_src: yes
 - name: Copy file
-  ansible.builtin.:template
+  ansible.builtin.template
     src: nginx.conf
     dest: /etc/nginx/nginx.conf
 - name: Make sure a service unit is running

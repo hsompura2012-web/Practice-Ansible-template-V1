@@ -6,11 +6,6 @@
 - name: Import App Pre Req
   ansible.builtin.import_tasks: AppPrereq.yaml
 
-- name: Install npm package
-  community.general.npm:
-    path: /app
-
-
 - name: installing dependencies
   ansible.builtin.shell: pip3 install -r requirements.txt
   args:

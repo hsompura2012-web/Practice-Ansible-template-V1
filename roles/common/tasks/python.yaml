@@ -1,0 +1,21 @@
+- name: Python3 server installtion
+  ansible.builtin.dnf:
+    name: python3, gcc, python3-devel
+    state: latest
+
+- name: Import App Pre Req
+  ansible.builtin.import_tasks: AppPrereq.yaml
+
+- name: Install npm package
+  community.general.npm:
+    path: /app
+
+
+- name: installing dependencies
+  ansible.builtin.shell: pip3 install -r requirements.txt
+  args:
+    chdir: /app/
+
+
+- name: Import systemd
+  ansible.builtin.import_tasks: systemd.yaml

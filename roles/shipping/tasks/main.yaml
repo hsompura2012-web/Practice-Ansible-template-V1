@@ -3,3 +3,14 @@
     name: common
     tasks_from: maven
 
+
+
+
+- name: create schema details
+  ansible.builtin.shell: mysql -h mysql-{{ env }}.harshitsompura.online -uroot -pRoboShop@1 < /app/db/{{ item }}.sql
+  loop:
+    - schema
+    - app-user
+    - master-data
+
+

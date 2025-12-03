@@ -16,14 +16,7 @@
     name: mysql
     state: latest
 
-- name: create schema details
-  ansible.builtin.shell: mysql -h mysql-{{ env }}.harshitsompura.online -uroot -pRoboShop@1 < /app/db/schema.sql
 
-- name: create schema app user details
-  ansible.builtin.shell: mysql -h mysql-{{ env }}.harshitsompura.online -uroot -pRoboShop@1 < /app/db/app-user.sql
-
-- name: create schema app user details
-  ansible.builtin.shell: mysql -h mysql-{{ env }}.harshitsompura.online -uroot -pRoboShop@1 < /app/db/master-data.sql
 
 - name: Import systemd
   ansible.builtin.import_tasks: systemd.yaml
